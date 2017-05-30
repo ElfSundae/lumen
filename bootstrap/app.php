@@ -27,6 +27,14 @@ $app = new Laravel\Lumen\Application(
 
 // $app->withEloquent();
 
+$app->configure('app');
+// $app->configure('cache');
+// $app->configure('database');
+// $app->configure('queue');
+$app->configure('api');
+$app->configure('services');
+// $app->configure('var');
+
 /*
 |--------------------------------------------------------------------------
 | Register Container Bindings
@@ -63,9 +71,12 @@ $app->singleton(
 //    App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+$app->routeMiddleware([
+    // 'auth' => App\Http\Middleware\Authenticate::class,
+    // 'auth.url' => App\Http\Middleware\UrlAuthorize::class,
+    // 'access_password' => App\Http\Middleware\VerifyAccessPassword::class,
+    'api.token' => App\Http\Middleware\VerifyApiToken::class,
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +92,7 @@ $app->singleton(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+// $app->register(Illuminate\Redis\RedisServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
