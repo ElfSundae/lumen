@@ -1,12 +1,6 @@
 @extends('layouts.master', ['title' => 'Home'])
 
-@push('head')
-@include('partials.api-token-meta')
-@endpush
-
-@push('js')
-@include('partials.api-token-ajax')
-@endpush
+@include('partials.api-token')
 
 @push('css')
 <style type="text/css">
