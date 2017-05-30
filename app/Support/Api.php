@@ -28,7 +28,7 @@ class Api
 
     public static function appKeyForName($appName)
     {
-        return md5((string) $appName.config('app.key'));
+        return md5((string) $appName.app('encrypter')->getKey());
     }
 
     public static function generateAppSecret($appKey)
