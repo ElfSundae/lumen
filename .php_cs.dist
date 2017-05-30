@@ -7,7 +7,6 @@ $finder = Finder::create()
     ->exclude([
         'resources',
         'storage',
-        'vendor',
     ])
     ->notPath('app/Listeners/ExampleListener.php')
     ->notPath('tests/ExampleTest.php')
