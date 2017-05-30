@@ -2,7 +2,7 @@
 
 return [
 
-    /**
+    /*
      * API Response Configuration.
      */
     'response' => [
