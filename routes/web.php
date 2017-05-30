@@ -14,8 +14,8 @@
 $app->get('/', 'HomeController@index');
 
 $app->group(['prefix' => 'api', 'namespace' => 'Api'], function () use ($app) {
-    $app->get('/', function () use ($app) {
-        return api($app->version());
+    $app->get('version', function () use ($app) {
+        return api(['version' => $app->version()]);
     });
 
     $app->group(['middleware' => 'api.token'], function () use ($app) {

@@ -18,10 +18,16 @@
 
 @push('js')
 <script>
-  console.log('Hello, world!');
+  $(function() {
+    $.getJSON('/api/version', null, function(data) {
+      $('.version').html(data.version);
+    })
+  })
 </script>
 @endpush
 
 @section('body')
-<h3>{{ app()->version() }}</h3>
+<h3 class="version">...</h3>
+<hr>
+Environment: <b>{{ app()->environment() }}</b>
 @endsection
