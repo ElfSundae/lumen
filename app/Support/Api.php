@@ -13,11 +13,17 @@ class Api
      */
     public static function defaultAppKey()
     {
-        if (! ($apps = config('api.apps'))) {
-            throw new Exception('The apps for api is not configured.', 1);
+        static $defaultAppKey = null;
+
+        if (is_null($defaultAppKey)) {
+            if (empty($apps = config('api.apps'))) {
+                throw new Exception('The apps for api is not configured.', 1);
+            }
+
+            $defaultAppKey = (string) array_first(array_keys($apps));
         }
 
-        return (string) array_first(array_keys($apps));
+        return $defaultAppKey;
     }
 
     public static function appKeyForName($appName)
