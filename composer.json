@@ -1,13 +1,17 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "name": "elfsundae/lumen-starter",
+    "description": "Lumen Starter Framework.",
+    "keywords": ["framework", "laravel", "lumen", "starter"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.6.4",
         "laravel/lumen-framework": "5.4.*",
-        "vlucas/phpdotenv": "~2.2"
+        "vlucas/phpdotenv": "~2.2",
+        "illuminate/redis": "5.4.*",
+        "predis/predis": "~1.0",
+        "guzzlehttp/guzzle": "~6.2",
+        "fabpot/goutte": "~3.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -27,7 +31,7 @@
     },
     "scripts": {
         "post-root-package-install": [
-            "php -r \"copy('.env.example', '.env');\""
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
     },
     "minimum-stability": "dev",
