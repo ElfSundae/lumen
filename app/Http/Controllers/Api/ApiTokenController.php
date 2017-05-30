@@ -20,10 +20,6 @@ class ApiTokenController extends Controller
         $time = time();
         $token = Api::generateToken($key, $time);
 
-        return api([
-            'data' => ['_key' => $key, '_time' => $time, '_token' => $token],
-            'parameters' => "_key=$key&_time=$time&_token=$token",
-            'headers' => ['X-API-KEY' => $key, 'X-API-TIME' => $time, 'X-API-TOKEN' => $token],
-        ]);
+        return api(compact('key', 'time', 'token'));
     }
 }
