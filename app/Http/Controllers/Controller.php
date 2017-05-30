@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Support\Http\ApiResponse;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 

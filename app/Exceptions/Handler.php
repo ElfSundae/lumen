@@ -2,7 +2,6 @@
 
 namespace App\Exceptions;
 
-use App\Support\Http\ApiResponse;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
