@@ -16,10 +16,6 @@ class ApiTokenController extends Controller
      */
     public function refreshToken(Request $request)
     {
-        $key = current_app_key();
-        $time = time();
-        $token = Api::tokenForKey($key, $time);
-
-        return api(compact('key', 'time', 'token'));
+        return api(Api::tokenDataForKey(current_app_key()));
     }
 }

@@ -41,6 +41,11 @@ class Api
         return static::generateAppSecretForKey(static::appKeyForName($appName));
     }
 
+    public static function token($key, $secret, $time)
+    {
+        return substr(md5($secret.(string) $time), 10, 20);
+    }
+
     public static function tokenForKey($key, $time)
     {
         if ($secret = config('api.apps.'.$key.'.secret')) {
@@ -48,9 +53,22 @@ class Api
         }
     }
 
-    public static function token($key, $secret, $time)
+    public static function tokenData($key, $secret, $time = null)
     {
-        return substr(md5($secret.(string) $time), 10, 20);
+        $time = $time ?: time();
+
+        return [
+            'key' => (string) $key,
+            'time' => $time,
+            'token' => static::token($key, $secret, $time),
+        ];
+    }
+
+    public static function tokenDataForKey($key, $time = null)
+    {
+        if ($secret = config('api.apps.'.$key.'.secret')) {
+            return $this->tokenData($key, $secret, $time);
+        }
     }
 
     public static function verifyToken($token, $key, $time)
