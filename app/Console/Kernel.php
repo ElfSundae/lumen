@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\GenerateApiApp::class,
+        Commands\GenerateApiToken::class,
         Commands\KeyGenerateCommand::class,
     ];
 
