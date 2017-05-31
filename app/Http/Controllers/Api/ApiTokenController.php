@@ -16,6 +16,6 @@ class ApiTokenController extends Controller
      */
     public function refreshToken(Request $request)
     {
-        return api(Api::tokenDataForKey(current_app_key()));
+        return api(['data' => Api::tokenDataForKey(current_app_key())]);
     }
 }
