@@ -12,7 +12,7 @@ class GenerateApiApp extends Command
      *
      * @var string
      */
-    protected $signature = 'app:api-app {app}';
+    protected $signature = 'app:api-app {app name}';
 
     /**
      * The console command description.
@@ -28,7 +28,7 @@ class GenerateApiApp extends Command
      */
     public function handle()
     {
-        $app = $this->argument('app');
+        $app = $this->argument('app name');
 
         $data = [
             'name' => $app,
