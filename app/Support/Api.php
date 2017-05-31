@@ -31,25 +31,30 @@ class Api
         return md5((string) $appName.app('encrypter')->getKey());
     }
 
-    public static function generateAppSecret($appKey)
+    public static function generateAppSecretForKey($appKey)
     {
         return sha1(encrypt($appKey));
     }
 
     public static function generateAppSecretForName($appName)
     {
-        return static::generateAppSecret(static::appKeyForName($appName));
+        return static::generateAppSecretForKey(static::appKeyForName($appName));
     }
 
-    public static function generateToken($appKey, $time)
+    public static function tokenForKey($key, $time)
     {
-        if ($appSecret = config('api.apps.'.$appKey.'.secret')) {
-            return substr(md5($appSecret.(string) $time), 10, 20);
+        if ($secret = config('api.apps.'.$key.'.secret')) {
+            return $this->token($key, $secret, $time);
         }
     }
 
-    public static function verifyToken($token, $appKey, $time)
+    public static function token($key, $secret, $time)
     {
-        return $token && $appKey && $time && $token === static::generateToken($appKey, $time);
+        return substr(md5($secret.(string) $time), 10, 20);
+    }
+
+    public static function verifyToken($token, $key, $time)
+    {
+        return $token && $key && $time && $token === static::tokenForKey($key, $time);
     }
 }

@@ -18,7 +18,7 @@ class ApiTokenController extends Controller
     {
         $key = current_app_key();
         $time = time();
-        $token = Api::generateToken($key, $time);
+        $token = Api::tokenForKey($key, $time);
 
         return api(compact('key', 'time', 'token'));
     }
