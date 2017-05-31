@@ -49,7 +49,7 @@ class Api
     public static function tokenForKey($key, $time)
     {
         if ($secret = config('api.apps.'.$key.'.secret')) {
-            return $this->token($key, $secret, $time);
+            return static::token($key, $secret, $time);
         }
     }
 
@@ -67,7 +67,7 @@ class Api
     public static function tokenDataForKey($key, $time = null)
     {
         if ($secret = config('api.apps.'.$key.'.secret')) {
-            return $this->tokenData($key, $secret, $time);
+            return static::tokenData($key, $secret, $time);
         }
     }
 
