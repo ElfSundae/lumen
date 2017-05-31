@@ -8,6 +8,7 @@
     ga('create', "{{ config('services.google_analytics.id') }}", "{{ config('services.google_analytics.cookie_domain') ?: 'auto' }}", {'allowLinker': true});
     ga('require', 'linker');
     ga('send', 'pageview');
+    if (typeof setupGA === "function") setupGA(ga);
   }, 0)
 </script>
 @endif
