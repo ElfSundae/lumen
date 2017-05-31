@@ -32,7 +32,7 @@ $app->configure('app');
 // $app->configure('database');
 // $app->configure('queue');
 $app->configure('api');
-$app->configure('services');
+// $app->configure('services');
 // $app->configure('var');
 
 /*
