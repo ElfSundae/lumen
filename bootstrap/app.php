@@ -27,10 +27,6 @@ $app = new Laravel\Lumen\Application(
 
 // $app->withEloquent();
 
-$app->configure('app');
-// $app->configure('cache');
-// $app->configure('database');
-// $app->configure('queue');
 $app->configure('api');
 // $app->configure('services');
 // $app->configure('var');
