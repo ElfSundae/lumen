@@ -3,19 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Support\Api;
-use Illuminate\Http\Request;
+use ElfSundae\LumenKit\Api\Token;
 
 class ApiTokenController extends Controller
 {
     /**
      * Generate a new api token.
      *
-     * @param  Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \ElfSundae\LumenKit\Http\ApiResponse
      */
-    public function refreshToken(Request $request)
+    public function refreshToken(Token $token)
     {
-        return api(['data' => Api::tokenDataForKey(current_app_key())]);
+        return api(['data' => $token->generateDataForKey(current_app_key())]);
     }
 }

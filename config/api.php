@@ -3,7 +3,7 @@
 return [
 
     /*
-     * API Response Configuration.
+     * Keys for API Responses.
      */
     'response' => [
         'key' => [
@@ -22,7 +22,7 @@ return [
     'token_duration' => env('API_TOKEN_DURATION', 180),
 
     /*
-     * All apps (api clients) that can make requests to this app's APIs.
+     * All api clients that can make requests to this app's APIs.
      * The first one is this app itself, see `Api::defaultAppKey()`.
      *
      * 'app-key' => [
@@ -31,7 +31,7 @@ return [
      *  ],
      *
      */
-    'apps' => [
+    'clients' => [
         'app-key' => [
             'name' => 'app-name',
             'secret' => 'app-secret',

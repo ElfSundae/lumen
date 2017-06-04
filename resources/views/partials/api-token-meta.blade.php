@@ -1,3 +1,3 @@
-<meta name="api-key" content="{{ $key = App\Support\Api::defaultAppKey() }}">
-<meta name="api-time" content="{{ $time = time() }}">
-<meta name="api-token" content="{{ App\Support\Api::tokenForKey($key, $time) }}">
+@foreach(app('api.token')->generateDataForKey(app('api.client')->defaultAppKey()) as $key => $value)
+<meta name="api-{{ $key }}" content="{{ $value }}">
+@endforeach
