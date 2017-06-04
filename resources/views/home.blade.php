@@ -4,8 +4,11 @@
 
 @push('css')
 <style type="text/css">
-  body {
-    text-align: center;
+  code {
+    color: blue;
+  }
+  .red {
+    color: red;
   }
 </style>
 @endpush
@@ -14,14 +17,26 @@
 <script>
   $(function() {
     $.getJSON('/api/version', function(data) {
-      $('.version').html(data.version);
+      $('.version').text(data.version);
     });
+
+    $('.refresh-token-btn').click(function(e) {
+      $.post('/api/token/refresh', function(data) {
+        $(e.target).parent().find('code').text(JSON.stringify(data, null, 2));
+      });
+    }).trigger('click');
   })
 </script>
 @endpush
 
 @section('body')
-<h3 class="version">...</h3>
-<hr>
-Environment: <b>{{ app()->environment() }}</b>
+<center>
+  <h3 class="version">...</h3>
+  <hr>
+  <p>Environment: <b class="red">{{ app()->environment() }}</b></p>
+</center>
+<div>
+  <button class="refresh-token-btn">Refresh Api Token</button>
+  <pre><code></code></pre>
+</div>
 @endsection
