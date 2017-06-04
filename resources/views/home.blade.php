@@ -13,9 +13,9 @@
 @push('js')
 <script>
   $(function() {
-    $.getJSON('/api/version', null, function(data) {
+    $.getJSON('/api/version', function(data) {
       $('.version').html(data.version);
-    })
+    });
   })
 </script>
 @endpush
