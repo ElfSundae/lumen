@@ -19,6 +19,6 @@ $app->group(['prefix' => 'api', 'namespace' => 'Api'], function () use ($app) {
     });
 
     $app->group(['middleware' => 'api.token'], function () use ($app) {
-        $app->get('token/refresh', 'ApiTokenController@refreshToken');
+        $app->post('token/refresh', 'ApiTokenController@refreshToken');
     });
 });
