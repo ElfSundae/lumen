@@ -8,9 +8,9 @@
   @isset($keywords)<meta name="keywords" content="{{ $keywords }}">@endisset
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-  <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
   @stack('head')
   @stack('css')
+  <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
   @include('partials.google-analytics')
 </head>
 @hasSection('body-class')
