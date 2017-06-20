@@ -3,8 +3,11 @@
 return [
 
     /*
-     * Keys for API Responses.
-     */
+    |--------------------------------------------------------------------------
+    | Api Response
+    |--------------------------------------------------------------------------
+    */
+
     'response' => [
         'key' => [
             'code' => 'code',
@@ -16,26 +19,51 @@ return [
     ],
 
     /*
-     * The valid duration before the token expires.
-     * You may set a larger number in the local environment to facilitate debugging.
-     */
-    'token_duration' => env('API_TOKEN_DURATION', 180),
+    |--------------------------------------------------------------------------
+    | Api Token Duration
+    |--------------------------------------------------------------------------
+    |
+    | The valid duration before the token expires.
+    | You may set a big number in the local environment to facilitate debugging.
+    |
+    */
+
+    'token_duration' => env('API_TOKEN_DURATION', 150),
 
     /*
-     * All api clients that can make requests to this app's APIs.
-     * The first one is this app itself, see `Api::defaultAppKey()`.
-     *
-     * 'app-key' => [
-     *      'name' => 'app-name',
-     *      'secret' => 'app-secret',
-     *  ],
-     *
-     */
+    |--------------------------------------------------------------------------
+    | Api Clients
+    |--------------------------------------------------------------------------
+    |
+    | All api clients that can make requests to this app's api.
+    | The first one is this app itself, see `Api\Client::defaultAppKey()`.
+    |
+    | 'app-key' => [
+    |      'name' => 'app-name',
+    |      'secret' => 'app-secret',
+    |  ],
+    |
+    */
+
     'clients' => [
         'app-key' => [
             'name' => 'app-name',
             'secret' => 'app-secret',
         ],
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Default Client
+    |--------------------------------------------------------------------------
+    |
+    | The app key for the default api client.
+    | By default, it will be the first app key in the clients array.
+    |
+    | See `Api\Client::defaultAppKey()`.
+    |
+    */
+
+    'default_client' => env('API_DEFAULT_CLIENT'),
 
 ];

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use ElfSundae\LumenKit\Api\Token;
+use ElfSundae\Laravel\Api\Token;
 
 class ApiTokenController extends Controller
 {
     /**
      * Generate a new api token.
      *
-     * @return \ElfSundae\LumenKit\Http\ApiResponse
+     * @return \ElfSundae\Laravel\Api\Http\ApiResponse
      */
     public function refreshToken(Token $token)
     {

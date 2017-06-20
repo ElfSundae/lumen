@@ -27,6 +27,7 @@ $app = new Laravel\Lumen\Application(
 
 // $app->withEloquent();
 
+$app->configure('api');
 $app->configure('services');
 
 /*
@@ -67,7 +68,7 @@ $app->singleton(
 
 $app->routeMiddleware([
     // 'auth' => App\Http\Middleware\Authenticate::class,
-    'api.token' => ElfSundae\LumenKit\Http\Middleware\VerifyApiToken::class,
+    'api.token' => ElfSundae\Laravel\Api\Http\Middleware\VerifyApiToken::class,
 ]);
 
 /*
@@ -85,7 +86,6 @@ $app->routeMiddleware([
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 // $app->register(Illuminate\Redis\RedisServiceProvider::class);
-$app->register(ElfSundae\LumenKit\LumenKitServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
