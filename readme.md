@@ -7,7 +7,7 @@
 - **Composer** way:
 
     ```sh
-    composer create-project elfsundae/lumen-starter myapp
+    composer create-project elfsundae/lumen-starter:dev-master myapp
     ```
 
 - **Git** way, or you may want to keep the Lumen framework up to date for your app:
