@@ -52,6 +52,13 @@ class Handler extends ExceptionHandler
             return $e->getResponse();
         }
 
+        if ($e instanceof ValidationException) {
+            return $this->createApiResponse(
+                implode("\n", array_flatten($e->getResponse()->getData(true))),
+                $e->getResponse()->getStatusCode()
+            );
+        }
+
         $response = parent::render($request, $e);
 
         if ($e instanceof HttpException) {
