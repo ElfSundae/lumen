@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Console\ConfirmableTrait;
 
-class GenerateKey extends Command
+class KeyGenerateCommand extends Command
 {
     use ConfirmableTrait;
 
