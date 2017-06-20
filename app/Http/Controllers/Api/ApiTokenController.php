@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use ElfSundae\Laravel\Api\Token;
+use App\Http\Controllers\Controller;
 
 class ApiTokenController extends Controller
 {

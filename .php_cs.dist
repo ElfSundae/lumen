@@ -4,13 +4,14 @@ use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
 $finder = Finder::create()
-    ->exclude([
-        'resources',
-        'storage',
+    ->in([
+        __DIR__.'/app',
+        __DIR__.'/database',
+        __DIR__.'/routes',
+        __DIR__.'/tests',
     ])
-    ->notPath('app/Listeners/ExampleListener.php')
-    ->notPath('tests/ExampleTest.php')
-    ->in(__DIR__);
+    ->notPath('ExampleListener.php')
+    ->notPath('ExampleTest.php');
 
 $rules = [
     'array_syntax' => ['syntax' => 'short'],
@@ -52,7 +53,7 @@ $rules = [
     'no_whitespace_in_blank_line' => true,
     'not_operator_with_successor_space' => true,
     'object_operator_without_whitespace' => true,
-    'ordered_imports' => true,
+    'ordered_imports' => ['sortAlgorithm' => 'length'],
     'phpdoc_indent' => true,
     'phpdoc_inline_tag' => true,
     'phpdoc_no_access' => true,

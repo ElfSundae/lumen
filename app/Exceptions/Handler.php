@@ -2,14 +2,14 @@
 
 namespace App\Exceptions;
 
-use ElfSundae\Laravel\Api\Exceptions\ApiResponseException;
 use Exception;
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use ElfSundae\Laravel\Api\Exceptions\ApiResponseException;
 
 class Handler extends ExceptionHandler
 {
