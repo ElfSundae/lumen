@@ -82,10 +82,12 @@ $app->routeMiddleware([
 |
 */
 
+$app->register(ElfSundae\Laravel\Api\ApiServiceProvider::class);
+// $app->register(Illuminate\Redis\RedisServiceProvider::class);
+
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
-// $app->register(Illuminate\Redis\RedisServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
