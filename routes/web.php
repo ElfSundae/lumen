@@ -11,14 +11,14 @@
 |
 */
 
-$app->get('/', 'HomeController@index');
+$router->get('/', 'HomeController@index');
 
-$app->group(['prefix' => 'api', 'namespace' => 'Api'], function () use ($app) {
-    $app->get('version', function () use ($app) {
-        return api(['version' => $app->version()]);
+$router->group(['prefix' => 'api', 'namespace' => 'Api'], function () use ($router) {
+    $router->get('version', function () use ($router) {
+        return api(['version' => $router->app->version()]);
     });
 
-    $app->group(['middleware' => 'api.token'], function () use ($app) {
-        $app->addRoute(['GET', 'POST'], 'token/refresh', 'ApiTokenController@refreshToken');
+    $router->group(['middleware' => 'api.token'], function () use ($router) {
+        $router->addRoute(['GET', 'POST'], 'token/refresh', 'ApiTokenController@refreshToken');
     });
 });

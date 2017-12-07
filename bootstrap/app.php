@@ -27,7 +27,6 @@ $app = new Laravel\Lumen\Application(
 
 // $app->withEloquent();
 
-$app->configure('api');
 $app->configure('services');
 
 /*
@@ -68,7 +67,7 @@ $app->singleton(
 
 $app->routeMiddleware([
     // 'auth' => App\Http\Middleware\Authenticate::class,
-    'api.token' => ElfSundae\Laravel\Api\Http\Middleware\VerifyApiToken::class,
+    'api.token' => ElfSundae\Laravel\Api\Middleware\VerifyApiToken::class,
 ]);
 
 /*
@@ -100,7 +99,9 @@ $app->register(ElfSundae\Laravel\Api\ApiServiceProvider::class);
 |
 */
 
-$app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
+$app->router->group([
+    'namespace' => 'App\Http\Controllers',
+], function ($router) {
     require __DIR__.'/../routes/web.php';
 });
 
